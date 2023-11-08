@@ -3,7 +3,8 @@ import 'package:mitch_koko/e_commerce/models/shoe.dart';
 
 class ShoeTile extends StatelessWidget {
   Shoe shoe;
-  ShoeTile({super.key, required this.shoe});
+  VoidCallback onTap;
+  ShoeTile({super.key, required this.shoe, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -25,9 +26,12 @@ class ShoeTile extends StatelessWidget {
                 child: Image.asset(shoe.imagePath)),
           ),
           // description
-          Text(
-            shoe.description,
-            style: const TextStyle(color: Colors.grey),
+          Padding(
+            padding: const EdgeInsets.all(25.0),
+            child: Text(
+              shoe.description,
+              style: const TextStyle(color: Colors.grey),
+            ),
           ),
           // price details
           Row(
@@ -53,18 +57,21 @@ class ShoeTile extends StatelessWidget {
                   ],
                 ),
               ),
-              Container(
-                padding: const EdgeInsets.all(15),
-                decoration: const BoxDecoration(
-                    color: Colors.black,
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(14),
-                      bottomRight: Radius.circular(14),
-                    )),
-                child: Icon(
-                  Icons.add,
-                  color: Colors.white,
-                  size: size.width * 0.085,
+              GestureDetector(
+                onTap: onTap,
+                child: Container(
+                  padding: const EdgeInsets.all(15),
+                  decoration: const BoxDecoration(
+                      color: Colors.black,
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(14),
+                        bottomRight: Radius.circular(14),
+                      )),
+                  child: Icon(
+                    Icons.add,
+                    color: Colors.white,
+                    size: size.width * 0.085,
+                  ),
                 ),
               ),
             ],
