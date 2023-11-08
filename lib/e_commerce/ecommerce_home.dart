@@ -45,7 +45,7 @@ class ECommerceHome extends StatelessWidget {
                 onTap: () => Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const ECommerceHomePage())),
+                        builder: (context) => ECommerceHomePage())),
                 child: Container(
                   decoration: BoxDecoration(
                       color: Colors.black,

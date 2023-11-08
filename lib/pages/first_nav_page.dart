@@ -35,6 +35,7 @@ class _FirstPageState extends State<FirstPage> {
               controller: myController,
               decoration: const InputDecoration(
                 border: OutlineInputBorder(),
+                hintText: 'Type in name',
               ),
             ),
           ),
