@@ -4,8 +4,17 @@ import 'package:mitch_koko/e_commerce/models/cart.dart';
 import 'package:mitch_koko/e_commerce/models/shoe.dart';
 import 'package:provider/provider.dart';
 
-class CartPage extends StatelessWidget {
+class CartPage extends StatefulWidget {
   const CartPage({super.key});
+
+  @override
+  State<CartPage> createState() => _CartPageState();
+}
+
+class _CartPageState extends State<CartPage> {
+  void removeItemFromCart(Shoe shoe) {
+    Provider.of<Cart>(context, listen: false).removeItemFromCart(shoe);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,6 +38,7 @@ class CartPage extends StatelessWidget {
                             Shoe individualShoe = value.getUserCart()[index];
                             return CartItem(
                               shoe: individualShoe,
+                              onTap: () => removeItemFromCart(individualShoe),
                             );
                           })),
                 ],
